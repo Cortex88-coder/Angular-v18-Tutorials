@@ -1,0 +1,25 @@
+<section
+  class="border-none h-screen relative container flex flex-col space-y-10 p-10 xl:p-20 2xl:p-40"
+>
+  <button
+    (click)="goBack()"
+    class="w-[150px] bg-gray-500 text-white rounded-lg font-semibold p-2 capitalize hover:bg-gray-700 transition-colors duration-300 absolute right-0"
+  >
+    Go back
+  </button>
+  @for (items of activeDynamicData; track $index) {
+  <h1 class="text-3xl font-extrabold text-gray-600 uppercase">
+    {{ items.title }}
+  </h1>
+  <span
+    class="bg-blue-400 text-white capitalize w-[150px] rounded-full p-2 text-center font-semibold"
+    >{{ items.pricing }}</span
+  >
+  <p>{{ items.content }}</p>
+  <button
+    class="w-[150px] bg-blue-900 text-white rounded-lg font-semibold p-2 capitalize hover:bg-blue-700 transition-colors duration-300"
+  >
+    purchase
+  </button>
+  }
+</section>

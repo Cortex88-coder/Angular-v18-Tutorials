@@ -1,13 +1,21 @@
 import { Component } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import { RouterOutlet, RouterModule } from '@angular/router';
+import { NgClass, NgFor, TitleCasePipe } from '@angular/common';
+import { NavbarComponent } from './components/navbar/navbar.component';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet],
+  imports: [
+    RouterOutlet,
+    RouterModule,
+    NgClass,
+    NgFor,
+    TitleCasePipe,
+    NavbarComponent,
+  ],
   templateUrl: './app.component.html',
-  styleUrl: './app.component.css'
 })
 export class AppComponent {
-  title = 'angularFullCourse';
+  classes: string = 'app';
 }

@@ -1,0 +1,71 @@
+<section
+  class="w-full border-none border-red-600 h-screen relative flex items-center justify-center bg-gray-100 p-5"
+>
+  <form
+    [formGroup]="userForm"
+    (submit)="handleSubmit()"
+    class="p-10 border flex flex-col space-y-10 w-full xl:w-[500px] 2xl:w-[500px] bg-white"
+  >
+    <div class="flex flex-col">
+      <h1 class="font-extrabold text-xl uppercase text-blue-600 animate-fadeIn">
+        millennium tech solutions
+      </h1>
+      <p class="text-sm font-semibold capitalize text-blue-500">
+        Login into your account
+      </p>
+    </div>
+
+    <div class="flex flex-col">
+      <label for="email" class="text-sm font-semibold text-blue-600"
+        >Email/Username</label
+      >
+      <input
+        type="text"
+        name="email"
+        id="email"
+        class="p-2 border bg-blue-100 placeholder-gray-500 outline-blue-300"
+        placeholder="Enter username/email"
+        formControlName="email"
+      />
+      @if (userForm.controls['email'].errors?.['required'] &&
+      userForm.controls['email'].touched) {
+      <p class="text-xs text-red-600">Email is a required field</p>
+      }
+    </div>
+
+    <div class="flex flex-col">
+      <label for="password" class="text-sm font-semibold text-blue-600"
+        >Password</label
+      >
+      <input
+        type="password"
+        name="password"
+        id="password"
+        class="p-2 border bg-blue-100 placeholder-gray-500 outline-blue-300"
+        placeholder="Enter password"
+        formControlName="password"
+      />
+      @if (userForm.controls['password'].errors?.['required'] &&
+      userForm.controls['password'].touched) {
+      <p class="text-xs text-red-600">Password is a required field</p>
+      }
+    </div>
+
+    <button
+      class="p-2 bg-blue-600 text-white rounded-md capitalize font-semibold hover:bg-blue-800 active:bg-blue-500 transition-colors duration-500 disabled:bg-blue-400"
+    >
+      submit
+    </button>
+
+    <div class="flex flex-row space-x-1 w-full items-center justify-center">
+      <h1 class="text-sm">Don't have an account?</h1>
+      <a
+        routerLink="/signup"
+        routerLinkActive=""
+        href=""
+        class="text-sm text-blue-600"
+        >register</a
+      >
+    </div>
+  </form>
+</section>
