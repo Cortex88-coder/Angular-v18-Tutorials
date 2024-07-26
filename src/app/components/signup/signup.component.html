@@ -1,0 +1,192 @@
+<section
+  class="flex flex-row w-full h-full xl:h-screen 2xl:h-screen xl:container 2xl:container p-2 xl:p-10 2xl:p-10 xl:space-x-10 2xl:space-x-10"
+>
+  <div
+    class="hidden xl:flex 2xl:flex w-full xl:w-[45%] 2xl:w-[45%] p-10 h-full bg-cover bg-center"
+  >
+    <img
+      src="/images/4957136_4957136.jpg"
+      alt="tech"
+      loading="lazy"
+      class="bg-center bg-cover"
+      width="600px"
+      height="600px"
+    />
+  </div>
+
+  <form
+    [formGroup]="userForm"
+    class="flex flex-col w-full xl:w-[50%] 2xl:w-[50%] h-full xl:border-x 2xl:border-x p-5 space-y-5 xl:space-y-10 2xl:space-y-16"
+    (submit)="handleFormSubmit()"
+  >
+    <div class="flex flex-col">
+      <h1 class="font-extrabold text-xl uppercase text-blue-600 animate-fadeIn">
+        millennium tech solutions
+      </h1>
+      <p class="text-sm font-semibold capitalize text-blue-500">
+        register an account
+      </p>
+    </div>
+
+    <section
+      class="flex flex-col xl:flex-row 2xl:flex-row w-full xl:space-x-5 2xl:space-x-5 space-y-5 xl:space-y-0 2xl:space-y-0"
+    >
+      <div class="flex flex-col w-full">
+        <label for="firstname" class="text-sm font-semibold text-blue-600"
+          >Firstname <span class="text-red-600">*</span></label
+        >
+        <input
+          type="text"
+          name="firstname"
+          id="firstname"
+          class="p-2 border bg-blue-100 placeholder-gray-500 outline-blue-300"
+          placeholder="Enter Firstname"
+          formControlName="firstname"
+        />
+        @if (userForm.controls['firstname'].errors?.['required'] &&
+        userForm.controls['firstname'].touched) {
+        <p class="text-xs text-red-600">Firstname is required</p>
+        }
+      </div>
+
+      <div class="flex flex-col w-full">
+        <label for="middlename" class="text-sm font-semibold text-blue-600"
+          >Middlename</label
+        >
+        <input
+          type="text"
+          name="middlename"
+          id="middlename"
+          class="p-2 border bg-blue-100 placeholder-gray-500 outline-blue-300"
+          placeholder="Enter Middlename"
+          formControlName="middlename"
+        />
+      </div>
+    </section>
+
+    <section
+      class="flex flex-col xl:flex-row 2xl:flex-row w-full xl:space-x-5 2xl:space-x-5 space-y-5 xl:space-y-0 2xl:space-y-0"
+    >
+      <div class="flex flex-col w-full">
+        <label for="lastname" class="text-sm font-semibold text-blue-600"
+          >Lastname <span class="text-red-600">*</span></label
+        >
+        <input
+          type="text"
+          name="lastname"
+          id="lastname"
+          class="p-2 border bg-blue-100 placeholder-gray-500 outline-blue-300"
+          placeholder="Enter Lastname"
+          formControlName="lastname"
+        />
+        @if (userForm.controls['lastname'].errors?.['required'] &&
+        userForm.controls['lastname'].touched) {
+        <p class="text-xs text-red-600">Lastname is required</p>
+        }
+      </div>
+
+      <div class="flex flex-col w-full">
+        <label for="phone" class="text-sm font-semibold text-blue-600"
+          >Phone number <span class="text-red-600">*</span></label
+        >
+        <input
+          type="text"
+          name="phone"
+          id="phone"
+          class="p-2 border bg-blue-100 placeholder-gray-500 outline-blue-300"
+          placeholder="Enter Phone"
+          formControlName="phone"
+        />
+        @if (userForm.controls['phone'].errors?.['required'] &&
+        userForm.controls['phone'].touched) {
+        <p class="text-xs text-red-600">Phone is required</p>
+        } @if (userForm.controls['phone'].errors?.['pattern'] &&
+        userForm.controls['phone'].dirty) {
+        <p class="text-xs text-red-600">Invalid phone number</p>
+        }
+      </div>
+    </section>
+
+    <section
+      class="flex flex-col xl:flex-row 2xl:flex-row w-full xl:space-x-5 2xl:space-x-5 space-y-5 xl:space-y-0 2xl:space-y-0"
+    >
+      <div class="flex flex-col w-full">
+        <label for="email" class="text-sm font-semibold text-blue-600"
+          >Email <span class="text-red-600">*</span></label
+        >
+        <input
+          type="email"
+          name="email"
+          id="email"
+          class="p-2 border bg-blue-100 placeholder-gray-500 outline-blue-300"
+          placeholder="Enter Email"
+          formControlName="email"
+        />
+        @if (userForm.controls['email'].errors?.['required'] &&
+        userForm.controls['email'].touched) {
+        <p class="text-xs text-red-600">Email is required</p>
+        } @if (userForm.controls['email'].errors?.['pattern'] &&
+        userForm.controls['email'].dirty) {
+        <p class="text-xs text-red-600">Invalid email address</p>
+        }
+      </div>
+
+      <div class="flex flex-col w-full">
+        <label for="password" class="text-sm font-semibold text-blue-600"
+          >Enter Password <span class="text-red-600">*</span></label
+        >
+        <input
+          type="password"
+          name="password"
+          id="password"
+          class="p-2 border bg-blue-100 placeholder-gray-500 outline-blue-300"
+          placeholder="Enter Password"
+          formControlName="password"
+        />
+        @if (userForm.controls['password'].errors?.['required'] &&
+        userForm.controls['password'].touched) {
+        <p class="text-xs text-red-600">Password is required</p>
+        } @if (userForm.controls['password'].errors?.['pattern'] &&
+        userForm.controls['password'].dirty) {
+        <p class="text-xs text-red-600">
+          Password must contain at least 10 and at most 20 characters, one
+          uppercase letter, one lowercase letter, one number, and one special
+          character
+        </p>
+        }
+      </div>
+    </section>
+
+    <section class="flex flex-col w-full xl:space-x-5 2xl:space-x-5 space-y-5">
+      <button
+        [disabled]="userForm.invalid"
+        type="button"
+        class="p-3 text-white font-semibold rounded-md hover:bg-blue-600 transition-colors duration-300 disabled:bg-blue-500"
+      >
+        Submit
+      </button>
+
+      <p class="text-center text-sm">
+        Already Have An Account?
+        <span
+          ><a
+            [routerLink]="'/login'"
+            class="text-blue-600 text-xs hover:underline"
+            >Login</a
+          ></span
+        >
+      </p>
+
+      <p class="text-gray-400 text-center text-xs">
+        Submit, you acknowledge that you have read and agree to our
+        <a href="" target="_blank" class="text-blue-500 hover:underline"
+          >Terms of Service</a
+        >
+        and
+        <a href="" target="_blank" class="text-blue-500 hover:underline"
+          >Privacy Policy</a
+        >
+      </p>
+    </section>
+  </form>
+</section>
